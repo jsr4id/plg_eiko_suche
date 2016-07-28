@@ -9,7 +9,7 @@
 	<authorUrl>www.feuerwehr-steina.de</authorUrl>
 	<copyright>Copyright (C) 2016 - Julian Schäfer</copyright>
 	<license>Veröffentlicht unter GNU/GPL Lizenz</license>
-	<version>0.2_BETA</version>
+	<version>0.2</version>
 	<description>PLG_SEARCH_EINSATZKOMPONENTE_DESC</description>
 
 	<files>
@@ -153,5 +153,9 @@
 			</fieldset>
 		</fields>
 	</config>
+
+	<updateservers>
+		<server type="collection" priority="1" name="Suche - Einsatzkomponente Update Server">http://feuerwehr-steina.de/update/plg_eiko_search_update.xml</server>
+	</updateservers>
 
 </extension>
