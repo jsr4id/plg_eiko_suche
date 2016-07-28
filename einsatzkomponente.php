@@ -183,6 +183,7 @@ class plgSearchEinsatzkomponente extends JPlugin
 
 
 		// The 'output' of the displayed link
+		$params = JComponentHelper::getParams('com_einsatzkomponente');
 		foreach($rows as $key => $row) {
 			$rows[$key]->title = $row->summary;
 				if($showOrga == 1 AND $showAddress == 0): $rows[$key]->title = $rows[$key]->title.' ('.$row->orga.')';
@@ -196,7 +197,7 @@ class plgSearchEinsatzkomponente extends JPlugin
 				elseif($showType == 1 AND $showCat == 1): $rows[$key]->section = $rows[$key]->section.' | '.$row->category.' | '.$row->type;
 				endif;
 
-			$rows[$key]->href = 'index.php?option=com_einsatzkomponente&view=einsatzbericht&id='.$row->id/*.'&Itemid=191'*/;
+			$rows[$key]->href = JRoute::_( JURI::root() . 'index.php?option=com_einsatzkomponente&view=einsatzbericht&id='.$row->id).'&Itemid='.$params->get('homelink','');
 			$rows[$key]->created = $row->date1;
 			$rows[$key]->text = $row->desc;
 
