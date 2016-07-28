@@ -1,1 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
 
+<extension type="plugin" group="search" version="3.0" method="upgrade">
+
+	<name>PLG_SEARCH_EINSATZKOMPONENTE</name>
+	<creationDate>2016-07-26</creationDate>
+	<author>Julian Schäfer</author>
+	<authorEmail>webmaster@feuerwehr-steina.de</authorEmail>
+	<authorUrl>www.feuerwehr-steina.de</authorUrl>
+	<copyright>Copyright (C) 2016 - Julian Schäfer</copyright>
+	<license>Veröffentlicht unter GNU/GPL Lizenz</license>
+	<version>0.2_BETA</version>
+	<description>PLG_SEARCH_EINSATZKOMPONENTE_DESC</description>
+
+	<files>
+		<filename plugin="einsatzkomponente">einsatzkomponente.php</filename>
+		<filename>index.html</filename>
+	</files>
+
+	<languages >
+		<language tag="de-DE">language/de-DE/de-DE.plg_search_einsatzkomponente.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.plg_search_einsatzkomponente.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					class="btn-group"
+					name="openInWindow"
+					type="radio"
+					default="1"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_BROW_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_BROW_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+				<field
+					name="infoShow"
+					type="note"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_INFO_SHOW_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_INFO_SHOW_DESC"
+				/>
+				<field
+					class="btn-group"
+					name="showOrga"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_ORGA_SHOW_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_ORGA_SHOW_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+				<field
+					class="btn-group"
+					name="showAddress"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_ADDRESS_SHOW_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_ADDRESS_SHOW_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+				<field
+					class="btn-group"
+					name="showType"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_TYPE_SHOW_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_TYPE_SHOW_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+				<field
+					class="btn-group"
+					name="showCat"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_CAT_SHOW_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_CAT_SHOW_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+
+
+				<field
+					name="infoSearch"
+					type="note"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_INFO_SEARCH_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_INFO_SEARCH_DESC"
+				/>
+				<field
+					class="btn-group"
+					name="searchType"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_TYPE_SEARCH_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_TYPE_SEARCH_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+				<field
+					class="btn-group"
+					name="searchCat"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_CAT_SEARCH_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_CAT_SEARCH_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+				<field
+					class="btn-group"
+					name="searchAddress"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_ADDRESS_SEARCH_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_ADDRESS_SEARCH_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+				<field
+					class="btn-group"
+					name="searchBoss"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_BOSS_SEARCH_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_BOSS_SEARCH_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+				<field
+					class="btn-group"
+					name="searchBoss2"
+					type="radio"
+					default="0"
+					label="PLG_SEARCH_EINSATZKOMPONENTE_BOSS2_SEARCH_LBL"
+					description="PLG_SEARCH_EINSATZKOMPONENTE_BOSS2_SEARCH_DESC"
+					>
+						<option value="0">PLG_SEARCH_EINSATZKOMPONENTE_NO_LBL</option>
+						<option value="1">PLG_SEARCH_EINSATZKOMPONENTE_YES_LBL</option>
+				</field>
+
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>
