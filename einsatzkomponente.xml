@@ -154,8 +154,4 @@
 		</fields>
 	</config>
 
-	<updateservers>
-		<server type="collection" priority="1" name="Suche - Einsatzkomponente Update Server">http://feuerwehr-steina.de/update/plg_eiko_search_update.xml</server>
-	</updateservers>
-
 </extension>
