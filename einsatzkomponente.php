@@ -14,9 +14,13 @@
 // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
+//for joomla 2.5
+jimport('joomla.plugin.plugin');
+
 
 // Require the component's router file
-require_once JPATH_SITE .  '/components/com_einsatzkomponente/router.php';
+require_once JPATH_ROOT. '/components/com_einsatzkomponente/router.php';
+
 
 /*
  * All functions need to get wrapped in a class
@@ -184,29 +188,25 @@ class plgSearchEinsatzkomponente extends JPlugin
 
 		// The 'output' of the displayed link
 		$params = JComponentHelper::getParams('com_einsatzkomponente');
+		
+		
 		foreach($rows as $key => $row) {
+			
 			$rows[$key]->title = $row->summary;
-				if($showOrga == 1 AND $showAddress == 0): $rows[$key]->title = $rows[$key]->title.' ('.$row->orga.')';
-				elseif($showOrga == 0 AND $showAddress == 1): $rows[$key]->title = $rows[$key]->title.' ('.$row->address.')';
-				elseif($showOrga == 1 AND $showAddress == 1): $rows[$key]->title = $rows[$key]->title.' ('.$row->orga.' | '.$row->address.')';
-				endif;
+				$rows[$key]->title .= ($showOrga AND $showAddress) ? ' (' . $row->orga .' | ' . $row->address .')'  : '';
+				$rows[$key]->title .= ($showOrga AND !$showAddress) ? ' (' . $row->orga .')' : '';
+				$rows[$key]->title .= ($showAddress AND !$showOrga) ? ' (' . $row->address .')' : '';
 
 			$rows[$key]->section = $section;
-				if($showType == 1 AND $showCat == 0): $rows[$key]->section = $rows[$key]->section.' | '.$row->type.')';
-				elseif($showType == 0 AND $showCat == 1): $rows[$key]->section = $rows[$key]->section.' | '.$row->category;
-				elseif($showType == 1 AND $showCat == 1): $rows[$key]->section = $rows[$key]->section.' | '.$row->category.' | '.$row->type;
-				endif;
+				$rows[$key]->section .= ($showCat) ? ' | ' . $row->category : '';
+				$rows[$key]->section .= ($showType) ? ' | ' . $row->type : '';		
 
-			$rows[$key]->href = JRoute::_( JURI::root() . 'index.php?option=com_einsatzkomponente&view=einsatzbericht&id='.$row->id).'&Itemid='.$params->get('homelink','');
+			$rows[$key]->href = JRoute::_('index.php?option=com_einsatzkomponente&view=einsatzbericht&id='.$row->id.'&Itemid='.$params->get('homelink',''));
 			$rows[$key]->created = $row->date1;
 			$rows[$key]->text = $row->desc;
 
-			if($openInWindow == 1){
-				$rows[$key]->browsernav = 1;
-			}
-			else{
-				$rows[$key]->browsernav = 0;
-			}
+			$rows[$key]->browsernav = ($openInWindow) ? 1 : 0;
+			
 		}
 
 	//Return the search results in an array
